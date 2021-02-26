@@ -17,6 +17,8 @@ code {
 
 .ant-layout-sider {
   background: #574fd8 !important;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
 }
 .ant-layout-header {
   line-height: 1.5715 !important;
@@ -24,4 +26,5 @@ code {
 
 .ant-menu.ant-menu-dark {
   background: #574fd8 !important;
+  font-size: 15px;
 }
