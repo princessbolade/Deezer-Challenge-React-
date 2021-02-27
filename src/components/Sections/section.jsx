@@ -3,7 +3,11 @@ import CardComponent from "../card/card-component";
 import "./style.css";
 
 const Section = (props) => (
-  <div>
+  <div
+    style={{
+      marginBottom: "20px",
+    }}
+  >
     <h4
       style={{
         fontWeight: "bolder",

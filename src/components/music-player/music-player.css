@@ -57,6 +57,9 @@
 @media screen and (max-width: 450px) {
   .player-panel {
     height: 50px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
   }
   .player-panel .image {
     height: 100%;

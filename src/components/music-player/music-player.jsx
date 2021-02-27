@@ -19,7 +19,14 @@ const MusicPlayer = ({ data }) => {
     <div className="player-panel">
       <div className="image">
         {data && (
-          <img src={data.album ? data.album.cover_medium : null} alt="music" />
+          <img
+            src={
+              data.album
+                ? data.album.cover_medium
+                : "https://files.radio.co/humorous-skink/staging/default-artwork.png"
+            }
+            alt="music"
+          />
         )}
       </div>
       {data && <div className="title">{data.title}</div>}

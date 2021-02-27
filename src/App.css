@@ -1,1 +1,10 @@
+.content {
+  margin-left: 200px;
+  position: relative;
+}
 
+@media screen and (max-width: 991px) {
+  .content {
+    margin-left: 0px;
+  }
+}

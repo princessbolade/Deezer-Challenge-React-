@@ -53,7 +53,7 @@ const App = () => {
   return (
     <Layout>
       <Sider />
-      <Layout>
+      <Layout className="content">
         <Header />
         <Layout.Content>
           <Spin spinning={isLoading}>
