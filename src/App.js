@@ -2,20 +2,31 @@ import "./App.css";
 import { Layout } from "antd";
 import Sider from "./components/sider/sider";
 import Header from "./components/header/header";
-import React from "react";
+import { Component } from "react";
+import ReleasedThisWeek from "./components/Sections/released-this-week";
+import FeaturedPlaylist from "./components/Sections/featured-playlist";
+import Browse from "./components/Sections/browse";
 
-function App() {
-  return (
-    <Layout>
-      <Sider />
+class App extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
       <Layout>
-        <Header />
-        <Layout.Content>
-          <div>Home</div>
-        </Layout.Content>
+        <Sider />
+        <Layout>
+          <Header />
+          <Layout.Content>
+            <ReleasedThisWeek />
+            <FeaturedPlaylist />
+            <Browse />
+          </Layout.Content>
+        </Layout>
       </Layout>
-    </Layout>
-  );
+    );
+  }
 }
 
 export default App;

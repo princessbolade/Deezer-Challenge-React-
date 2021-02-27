@@ -1,0 +1,12 @@
+.card-style {
+  background-size: cover !important;
+  background-position: center !important;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  margin-left: 35px;
+}
