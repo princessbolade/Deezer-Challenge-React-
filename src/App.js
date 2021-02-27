@@ -57,9 +57,13 @@ const App = () => {
         <Header />
         <Layout.Content>
           <Spin spinning={isLoading}>
-            <Section data={data.tracks} title="Real " onSelect={onSelect} />
-            <Section data={data.playlists} title=" sec" />
-            <Section data={data.albums} title="ANother" />
+            <Section
+              data={data.tracks}
+              title="NEW RELEASED"
+              onSelect={onSelect}
+            />
+            <Section data={data.playlists} title=" FEATURED PLAYLST" />
+            <Section data={data.albums} title="BROWSE" />
             <MusicPlayer data={track} />
           </Spin>
         </Layout.Content>
