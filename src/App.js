@@ -1,32 +1,71 @@
 import "./App.css";
-import { Layout } from "antd";
+import { Layout, Spin } from "antd";
 import Sider from "./components/sider/sider";
 import Header from "./components/header/header";
-import { Component } from "react";
-import ReleasedThisWeek from "./components/Sections/released-this-week";
-import FeaturedPlaylist from "./components/Sections/featured-playlist";
-import Browse from "./components/Sections/browse";
+import Section from "./components/Sections/section";
 
-class App extends Component {
-  constructor() {
-    super();
-  }
+import React, { useCallback, useState } from "react";
+import MusicPlayer from "./components/music-player/music-player";
 
-  render() {
-    return (
+const App = () => {
+  const initState = {
+    tracks: {
+      data: [],
+      total: 0,
+    },
+    playlists: {
+      data: [],
+      total: 0,
+    },
+    albums: {
+      data: [],
+      total: 0,
+    },
+  };
+  const [data, setData] = useState(initState);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [track, setTrack] = useState({});
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError("");
+      try {
+        const response = await fetch(
+          "https://cors.bridged.cc/https://api.deezer.com/chart/0"
+        );
+        const data = await response.json();
+
+        setData(data);
+        setIsLoading(false);
+
+        console.log(data);
+      } catch (error) {
+        setError(String(error));
+      }
+    };
+
+    void fetchData();
+  }, []);
+
+  const onSelect = (data) => setTrack(data);
+  return (
+    <Layout>
+      <Sider />
       <Layout>
-        <Sider />
-        <Layout>
-          <Header />
-          <Layout.Content>
-            <ReleasedThisWeek />
-            <FeaturedPlaylist />
-            <Browse />
-          </Layout.Content>
-        </Layout>
+        <Header />
+        <Layout.Content>
+          <Spin spinning={isLoading}>
+            <Section data={data.tracks} title="Real " onSelect={onSelect} />
+            <Section data={data.playlists} title=" sec" />
+            <Section data={data.albums} title="ANother" />
+            <MusicPlayer data={track} />
+          </Spin>
+        </Layout.Content>
       </Layout>
-    );
-  }
-}
+    </Layout>
+  );
+};
 
 export default App;

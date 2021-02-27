@@ -1,25 +1,44 @@
 import React from "react";
 import "./card.css";
 
-const CardComponent = () => (
-  <div style={{ textAlign: "center", display: "inline-block" }}>
+const CardComponent = ({ data, ...props }) => {
+  const Url = data.picture
+    ? data.picture
+    : data.cover
+    ? data.cover
+    : `https://e-cdns-images.dzcdn.net/images/cover/${data?.md5_image}/250x250-000000-80-0-0.jpg`;
+
+  return (
     <div
-      className="card-style"
-      style={{
-        background:
-          "Url('http://c.files.bbci.co.uk/293F/production/_106195501_gettyimages-1028997414.jpg')",
+      onClick={() => {
+        if (props?.onSelect) {
+          props?.onSelect(data);
+        }
+        return;
       }}
-    ></div>
-    <p
       style={{
-        fontWeight: "bold",
-        fontSize: "13px",
-        marginTop: "15px !important",
+        textAlign: "center",
+        display: "inline-block",
+        margin: "0px 17px",
+        cursor: "pointer",
       }}
     >
-      Bodak Yellow
-    </p>
-  </div>
-);
-
+      <div
+        className="card-style"
+        style={{
+          background: `Url( ${Url})`,
+        }}
+      ></div>
+      <p
+        style={{
+          fontWeight: "bold",
+          fontSize: "13px",
+          marginTop: "15px !important",
+        }}
+      >
+        {data?.title}
+      </p>
+    </div>
+  );
+};
 export default CardComponent;

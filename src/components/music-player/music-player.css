@@ -1,0 +1,80 @@
+.player-panel {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 0.5rem;
+  border-top: 1px solid whitesmoke;
+  background-color: white;
+}
+.player-panel > * {
+  padding: 0 0.5rem;
+}
+.player-panel .image {
+  height: 100%;
+}
+.player-panel .image img {
+  height: 100%;
+}
+.player-panel i {
+  color: #d3d3e0;
+}
+.player-panel .title {
+  color: #1b1b1d;
+  font-size: 11px;
+}
+.player-panel .controls > * {
+  padding: 0 0.3rem;
+}
+.player-panel .controls .fa-play-circle,
+.player-panel .controls .fa-pause-circle {
+  transform: scale(1.5);
+  color: #6c63ff;
+}
+.player-panel .bar {
+  width: 63%;
+  background-color: #6c63ff;
+  height: 2px;
+}
+.player-panel .options {
+  justify-self: end;
+}
+.player-panel .options > * {
+  padding: 0 0.3rem;
+}
+.player-panel .options,
+.player-panel .controls {
+  display: flex;
+}
+.player-panel .fa {
+  cursor: pointer;
+}
+.player-panel .fa:active {
+  color: #6c63ff;
+}
+@media screen and (max-width: 450px) {
+  .player-panel {
+    height: 50px;
+  }
+  .player-panel .image {
+    height: 100%;
+  }
+  .player-panel .title {
+    display: none;
+  }
+  .player-panel .bar {
+    width: 50%;
+  }
+  .player-panel .controls .fa {
+    transform: scale(1.2);
+  }
+  .player-panel .controls .fa-play-circle,
+  .player-panel .controls .fa-pause-circle {
+    transform: scale(1.7);
+  }
+  .player-panel .options {
+    display: none;
+  }
+}
