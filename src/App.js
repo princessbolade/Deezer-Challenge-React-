@@ -59,7 +59,7 @@ const App = () => {
           <Spin spinning={isLoading}>
             <Section
               data={data.tracks}
-              title="NEW RELEASED"
+              title="RELEASED THIS WEEK"
               onSelect={onSelect}
             />
             <Section data={data.playlists} title=" FEATURED PLAYLST" />
